@@ -19,7 +19,7 @@ const userSchema = mongoose.Schema({
 //this method search for a user by email and password.
 userSchema.statics.findByCredentials = async (email, password) => {
     console.log(email,password)
-  const user = await User.findOne({ email })
+  const user = await Patients.findOne({ email })
   if (user === null) {
     return user;
   }
@@ -28,5 +28,5 @@ userSchema.statics.findByCredentials = async (email, password) => {
   }
 };
 
-const User = mongoose.model("Users", userSchema, "users");
-module.exports = User
+const Patients = mongoose.model("Patients", userSchema, "patients");
+module.exports = Patients

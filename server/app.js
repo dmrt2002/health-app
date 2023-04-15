@@ -21,9 +21,9 @@ mongoose.connect(process.env.DB_URI, {
 app.use(cors());
 
 const doctorRoutes = require("./routers/doctor.js")
-const userRoutes = require("./routers/user.js")
+const userRoutes = require("./routers/patients.js")
 app.use("/doctor", doctorRoutes);
-app.use("/user", userRoutes);
+app.use("/patients", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`App is running on`, PORT);

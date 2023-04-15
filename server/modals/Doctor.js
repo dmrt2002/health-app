@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const userSchema = mongoose.Schema({
-  name: {
+  fname: {
     type: String,
   },
   email: {
@@ -12,7 +12,25 @@ const userSchema = mongoose.Schema({
   patients: {
     type: Array
   },
-  state: {
+  appointments: {
+    type: Array
+  },
+  city: {
+    type: String
+  },
+  address: {
+    type: String
+  },
+  lname: {
+    type: String
+  },
+  specialist: {
+    type: String
+  },
+  title: {
+    type: String
+  },
+  gender: {
     type: String
   },
 });

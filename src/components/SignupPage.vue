@@ -72,6 +72,18 @@
               </div>
             </div>
           </div>
+          <div class="mt-6 w-full">
+            <lable class="text-sm font-medium leading-none text-gray-800">
+              State
+            </lable>
+            <input
+            v-model="state"
+              aria-label=""
+              role="input"
+              type="email"
+              class="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+            />
+          </div>
           <div class="mt-8">
             <button
             @click="redirect"
@@ -89,7 +101,7 @@
 </template>
 
 <script>
-import { useRouter } from "vue-router";
+import { useRouter} from "vue-router";
 import { reactive, toRefs } from "vue";
 import { useStore } from "vuex";
 import axios from 'axios'
@@ -104,14 +116,20 @@ export default {
       name:"",
       email: "",
       password: "",
+      state: "",
     });
     let redirect = async () => {
         try {
-          let res = await axios.post("http://localhost:5000/user/register", state);
+          const param = {
+            name: state.name,
+            email: state.email,
+            password: state.password,
+            state: state.state,
+          }
+          let res = await axios.post("http://localhost:5000/patients/register", param);
           if (res.status !== 401) {
             store.dispatch("storeToken", res.data.token);
             store.dispatch("storeEmail", state.email);
-            store.dispatch('emptyProducts');
             router.push("/home");
           }
         } catch (e) {

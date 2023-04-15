@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 var jsonParser = bodyParser.json()
 
 
-router.post("/register", jsonParser, userController.registerUser);
+router.post("/register", jsonParser, userController.registerDoctor);
 router.post("/login", jsonParser, userController.userLogin);
 
 
