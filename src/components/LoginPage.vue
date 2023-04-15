@@ -18,8 +18,10 @@
               <div class="md:mx-6 md:p-12">
                 <div class="text-center">
                   <img
-                    class="mx-auto w-48"
+                    src = "../assets/Doctors.png"
+                    class="mx-auto w-24"
                     alt="logo"
+                    
                   />
 
                   <h4 class="mt-1 mb-12 pb-1 text-2xl">
@@ -33,7 +35,7 @@
                         font-extrabold
                         text-transparent
                       "
-                      >Farmers</span
+                      >Doctors</span
                     >
                   </h4>
                 </div>
@@ -166,7 +168,8 @@
               <div class="md:mx-6 md:p-12">
                 <div class="text-center">
                   <img
-                    class="mx-auto w-48"
+                    src = "../assets/profile.png"
+                    class="mx-auto w-24"
                     alt="logo"
                   />
                   <h4 class="mt-1 mb-12 pb-1 text-2xl">
@@ -180,7 +183,7 @@
                         font-extrabold
                         text-transparent
                       "
-                      >Customers</span
+                      >Users</span
                     >
                   </h4>
                 </div>
