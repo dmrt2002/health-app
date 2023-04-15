@@ -6,7 +6,7 @@
   >
     <div
       class="absolute top-0 w-full h-full bg-center bg-cover"
-      style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images&#63;q=tbn:ANd9GcTBY1P9vxcwUGxPwsQ_CWuFXDsfjOnGqmeC4xUeu-esnA&amp;s)"
+      style="background-image: url(&quot;https://img.freepik.com/free-photo/diversity-team-five-happy-successful-doctor-standing-together_186202-2167.jpg?size=626&amp;ext=jpg&amp;ga=GA1.1.1991912509.1681564775&amp;semt=ais)"
 
     >
       <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
