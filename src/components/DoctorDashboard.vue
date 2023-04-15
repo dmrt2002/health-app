@@ -5,7 +5,7 @@
             <img src="https://vuesax.com/logos/logo-vuesax-logotipo-vuesax-png-3.png" alt="" />
         </template>
         <template #header> Dashboard </template>
-        <tu-sidebar-item id="home">
+        <tu-sidebar-item id="home" href="/#/human" target="_self">
             <template #icon>
                 <img src="https://e7.pngegg.com/pngimages/404/150/png-clipart-fountain-hills-computer-icons-house-home-inspection-house-blue-angle.png"
                     width="28" alt="" />

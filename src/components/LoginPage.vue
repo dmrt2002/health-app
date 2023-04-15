@@ -320,9 +320,6 @@ import { reactive, toRefs } from "vue";
 import { useStore } from "vuex";
 import axios from "axios";
 export default {
-  components: {
-
-  },
   setup() {
     const router = useRouter();
     const store = useStore();
