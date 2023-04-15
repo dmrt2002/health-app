@@ -59,6 +59,12 @@
             class="mt-2 mb-4 text-gray-500"
           >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
+        <!-- Chatbot -->
+    <button class="inline-block h-12 w-12 lg:mb-0 mr-4 fixed bottom-5   right-5 z-50">
+       <ChatBubbleLeftEllipsisIcon class="h-full w-full rounded-full bg-white overflow-hidden text-indigo-500 shadow-lg p-2 hover:drop-shadow-glow" />
+      </button>
+
+        <!-- Chatbot end -->
       </div>
     </div>
   </section>
@@ -66,7 +72,11 @@
 
 
 <script>
+import { ChatBubbleLeftEllipsisIcon } from "@heroicons/vue/24/solid"
 export default{
-    name: 'ServicesSection'
+    name: 'ServicesSection',
+    components: {
+        ChatBubbleLeftEllipsisIcon
+    }
 }
 </script>
