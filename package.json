@@ -15,7 +15,8 @@
     "jsonwebtoken": "^9.0.0",
     "vue-router": "^4.1.6",
     "vuex": "^4.1.0",
-    "vuex-persistedstate": "^4.1.0"
+    "vuex-persistedstate": "^4.1.0",
+		"material-design-icons": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
