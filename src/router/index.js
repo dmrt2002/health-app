@@ -5,7 +5,6 @@ import Human from "../components/HumanPage.vue"
 import FindDoctors from "../components/FindDoctorsPage.vue"
 import MedicinesPage from "../components/MedicinesPage.vue"
 import DiseasesPage from "../components/DiseasesPage.vue"
-import Chat from "../components/ChatView.vue"
 import HomePage from "../components/HomePage.vue"
 import CheerFul from '../components/CheerFul.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
@@ -50,11 +49,6 @@ const routes = [
         path: '/medicines',
         name: 'medicines',
         component: MedicinesPage
-    },
-    {
-        path: '/chat',
-        name: 'chat',
-        component: Chat
     },
     {
         path: '/diseases',
