@@ -1,5 +1,6 @@
 <template>
     <div>
+        <NavBar />
         <div>
             <div class="flex justify-evenly mt-8">
                 <div>
@@ -99,8 +100,10 @@
 import { defineComponent, onMounted, ref } from "vue";
 import { useStore } from "vuex";
 import axios from "axios"
+import NavBar from "./NavBar.vue";
 export default defineComponent({
     components: {
+        NavBar
     },
     setup() {
         const store = useStore();
@@ -110,7 +113,6 @@ export default defineComponent({
                 city: store.getters.getCity
             }
             let res = await axios.post("http://localhost:5000/doctor/getdoctors", param);
-            console.log(res)
             doctors.value = res.data
         })
         return { doctors }

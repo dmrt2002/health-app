@@ -1,0 +1,85 @@
+<template>
+    <Popover class="relative bg-white z-50">
+      <div class="flex items-center justify-between p-2 md:justify-start md:space-x-10">
+        <div class="flex justify-start lg:w-0 lg:flex-1">
+          <a href="#">
+            <span class="sr-only">Your Company</span>
+            <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+          </a>
+        </div>
+        <div class="-my-2 -mr-2 md:hidden">
+          <PopoverButton class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+            <span class="sr-only">Open menu</span>
+            <Bars3Icon class="h-6 w-6" aria-hidden="true" />
+          </PopoverButton>
+        </div>
+        <PopoverGroup as="nav" class="hidden space-x-10 md:flex">
+  
+          <a href="/#/diseases" class="text-base font-medium text-gray-500 hover:text-gray-900">Diseases</a>
+          <a href="/#/medicines" class="text-base font-medium text-gray-500 hover:text-gray-900">Medicines</a>
+          <a href="/#/finddoctors" class="text-base font-medium text-gray-500 hover:text-gray-900">Doctors</a>
+  
+        </PopoverGroup>
+      </div>
+  
+      <transition enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
+        <PopoverPanel focus class="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden">
+          <div class="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div class="px-5 pt-5 pb-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
+                </div>
+                <div class="-mr-2">
+                  <PopoverButton class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <span class="sr-only">Close menu</span>
+                    <XMarkIcon class="h-6 w-6" aria-hidden="true" />
+                  </PopoverButton>
+                </div>
+              </div>
+              <div class="mt-6">
+                <nav class="grid grid-cols-1 gap-7">
+                  <a v-for="solution in solutions" :key="solution.name" :href="solution.href" class="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50">
+                    <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md">
+                      <tu-icon>{{  solution.icon  }}</tu-icon>
+                    </div>
+                    <div class="ml-4 text-base font-medium text-gray-900">{{ solution.name }}</div>
+                  </a>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </PopoverPanel>
+      </transition>
+    </Popover>
+  </template>
+
+<script>
+import { Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/vue'
+import { tuIcon } from "tukal-vue"
+import {
+    XMarkIcon,
+    Bars3Icon,
+} from '@heroicons/vue/24/outline'
+export default {
+    components: {
+        Popover, PopoverButton, PopoverGroup, PopoverPanel, XMarkIcon, Bars3Icon, tuIcon
+    },
+    setup() {
+        const solutions = [
+            {
+                name: 'Diseases',
+                icon: "people",
+                href: "/#/diseases"
+            },
+            {
+                name: 'Medicines',
+                icon: "local_pharmacy",
+                href: "/#/medicines"
+            },
+            { name: 'Doctors', icon: "local_hospital" , href: "/#/finddoctors" },
+        ]
+        return { solutions }
+    }
+}
+</script>

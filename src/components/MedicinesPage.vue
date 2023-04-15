@@ -1,5 +1,6 @@
 <template>
     <div>
+        <NavBar />
         <div>
             <div class="flex justify-evenly mt-8">
                 <div>
@@ -49,8 +50,8 @@
                     </div>
                 </div>
             </div>
-            <div v-if="diseases.length > 0" class="grid md:grid-cols-3 sm:grid-cols-12 gap-4 p-6">
-                <div v-for="disease in diseases" :key="disease">
+            <div v-if="medicines.length > 0" class="grid md:grid-cols-3 sm:grid-cols-12 gap-4 p-6">
+                <div v-for="disease in medicines" :key="disease">
                     <div class="max-w-sm rounded shadow bg-white dark:bg-gray-800">
                         <div class="p-4 md:p-6">
                             <div class="flex items-center">
@@ -100,17 +101,19 @@
 <script>
 import { defineComponent, onMounted, ref } from "vue";
 import axios from "axios"
+import NavBar from "./NavBar.vue"
 export default defineComponent({
     components: {
+        NavBar
     },
     setup() {
-        const diseases = ref([]);
+        const medicines = ref([]);
         onMounted(async () => {
             let res = await axios.post("http://localhost:5000/patients/getMedicines");
-            diseases.value = res.data
-            console.log(diseases.value[0])
+            medicines.value = res.data
+            console.log(medicines.value[0])
         })
-        return { diseases }
+        return { medicines }
     }
 });
 </script>

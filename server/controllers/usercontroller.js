@@ -94,8 +94,15 @@ exports.getMedicines = async (req, res) => {
   res.status(200).json(results.slice(0,30));
 }
 
-exports.getMedicines = async (req, res) => {
-  console.log(diseases);
+exports.getDiseases = async (req, res) => {
+const key = 'Disease';
+const unique = [...new Map(diseases.map(item =>
+  [item[key], item])).values()];
+
+  let results = unique.filter((obj) => {
+    return obj.Symptom_1 !== null && obj.Symptom_2 !== null && obj.Symptom_3 !== null && obj.Symptom_4 !== null
+  });
+  res.status(200).json(results.slice(4,34))
 }
 
 
