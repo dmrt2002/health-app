@@ -105,4 +105,45 @@ const unique = [...new Map(diseases.map(item =>
   res.status(200).json(results.slice(4,34))
 }
 
+exports.getAppointment = async (req,res) => {
+  let doctor = await Doctor.find({_id: req.body.doctorid});
+  try {
+  let updated = await Patients.findOneAndUpdate({
+    _id: req.body.token,
+  } , {
+    $push: {
+      appointments: {
+        fullname: doctor[0].fname,
+        age: req.body.age,
+        sex: req.body.sex,
+        phone: req.body.phone,
+        email: req.body.email,
+        date: req.body.date,
+        status: "pending"
+      }
+    },
+  });
+  console.log(updated)
+}
+catch(e) {
+  console.log(e)
+}
+  await Doctor.findOneAndUpdate({
+    _id: req.body.doctorid,
+  } , {
+    $push: {
+      appointments: {
+        fullname: req.body.fullname,
+        age: req.body.age,
+        sex: req.body.sex,
+        phone: req.body.phone,
+        email: req.body.email,
+        date: req.body.date,
+        status: "pending"
+      }
+    },
+  });
+  res.status(200).json("successful")
+}
+
 

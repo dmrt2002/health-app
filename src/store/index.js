@@ -6,7 +6,6 @@ export default createStore({
   state: {
     token: "",
     appointments: [],
-    email: "",
     city: "",
   },
   mutations: {

@@ -8,35 +8,35 @@
                         <label for="search" class="sr-only">Search</label>
                         <div class="relative">
                             <div class="
-                              pointer-events-none
-                              absolute
-                              inset-y-0
-                              left-0
-                              pl-3
-                              flex
-                              items-center
-                            ">
+                                  pointer-events-none
+                                  absolute
+                                  inset-y-0
+                                  left-0
+                                  pl-3
+                                  flex
+                                  items-center
+                                ">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
                             <input id="search" name="search" v-model="searchProduct" class="
-                              block
-                              w-full
-                              bg-white
-                              border border-gray-300
-                              rounded-md
-                              py-2
-                              pl-10
-                              pr-3
-                              text-sm
-                              placeholder-gray-500
-                              focus:outline-none
-                              focus:text-gray-900
-                              focus:placeholder-gray-400
-                              focus:ring-1
-                              focus:ring-indigo-500
-                              focus:border-indigo-500
-                              sm:text-sm
-                            " placeholder="Search" type="search" />
+                                  block
+                                  w-full
+                                  bg-white
+                                  border border-gray-300
+                                  rounded-md
+                                  py-2
+                                  pl-10
+                                  pr-3
+                                  text-sm
+                                  placeholder-gray-500
+                                  focus:outline-none
+                                  focus:text-gray-900
+                                  focus:placeholder-gray-400
+                                  focus:ring-1
+                                  focus:ring-indigo-500
+                                  focus:border-indigo-500
+                                  sm:text-sm
+                                " placeholder="Search" type="search" />
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,8 @@
                                 </div>
                             </div>
                             <div class="px-8 mt-6">
-                                <button class="bg-indigo-700 hover:bg-indigo-600 w-full rounded py-2">
+                                <button @click="openDialog(doctor._id)"
+                                    class="bg-indigo-700 hover:bg-indigo-600 w-full rounded py-2">
                                     <p class="sm:text-base text-sm font-semibold leading-9 text-center text-white">Get
                                         Appointment</p>
                                 </button>
@@ -93,21 +94,99 @@
                 </div>
             </div>
         </div>
+        <tu-dialog width="550px" v-model="activeDialog">
+            <template v-slot:header>
+                <h4 class="mt-4">Appointment</h4>
+            </template>
+            <div class="center">
+                <div>
+                    <table>
+                        <tr>
+                            <td>
+                                <span title="Label">Full Name</span>
+                            </td>
+                            <td>
+                                <tu-input primary v-model="fullname" state="primary" class="" placeholder="Full Name" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span title="Label">Age</span>
+                            </td>
+                            <td>
+                                <tu-input primary v-model="age" state="primary" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span title="Label">Sex</span>
+                            </td>
+                            <td>
+                                <tu-input primary v-model="sex" state="primary" class="" placeholder="Full Name" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span title="Label">Phone</span>
+                            </td>
+                            <td>
+                                <tu-input type="number" v-model="phone" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span title="Label">Email</span>
+                            </td>
+                            <td>
+                                <tu-input type="email" v-model="email" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span title="Label">Appointment Date</span>
+                            </td>
+                            <td>
+                                <tu-input type="date" v-model="date" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <template v-slot:footer>
+                <tu-button width="100px" style="margin: 5px" @click="submitApplication()" block>
+                    Submit
+                </tu-button>
+            </template>
+        </tu-dialog>
     </div>
 </template>
 
 <script>
-import { defineComponent, onMounted, ref } from "vue";
+import { defineComponent, onMounted, ref, toRefs, reactive } from "vue";
 import { useStore } from "vuex";
 import axios from "axios"
 import NavBar from "./NavBar.vue";
+import { tuDialog, tuButton, tuInput } from "tukal-vue"
 export default defineComponent({
     components: {
-        NavBar
+        NavBar,
+        tuDialog,
+        tuButton,
+        tuInput
     },
     setup() {
         const store = useStore();
         const doctors = ref([]);
+        let currentDoctor = ref();
+        const activeDialog = ref(false);
+        const appointment = reactive({
+            fullname: "",
+            age: "",
+            sex: "",
+            phone: "",
+            email: "",
+            date: ""
+        })
         onMounted(async () => {
             let param = {
                 city: store.getters.getCity
@@ -115,7 +194,28 @@ export default defineComponent({
             let res = await axios.post("http://localhost:5000/doctor/getdoctors", param);
             doctors.value = res.data
         })
-        return { doctors }
+        const openDialog = (id) => {
+            currentDoctor.value = id;
+            activeDialog.value = true
+        }
+        const submitApplication = async () => {
+            let param = {
+                fullname: appointment.fullname,
+                age: appointment.age,
+                sex: appointment.sex,
+                phone: appointment.phone,
+                email: appointment.email,
+                date: appointment.date,
+                token: store.getters.getToken,
+                doctorid: currentDoctor.value
+            }
+            let res = await axios.post("http://localhost:5000/patients/getAppointment", param);
+            console.log(res)
+            if(res.status === 200) {
+                activeDialog.value = false
+            }
+        }
+        return { doctors, openDialog, activeDialog, submitApplication, ...toRefs(appointment) }
     }
 });
 </script>
@@ -132,5 +232,11 @@ export default defineComponent({
 
 .d-flex {
     display: flex;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>

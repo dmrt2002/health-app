@@ -18,8 +18,13 @@
           <a href="/#/diseases" class="text-base font-medium text-gray-500 hover:text-gray-900">Diseases</a>
           <a href="/#/medicines" class="text-base font-medium text-gray-500 hover:text-gray-900">Medicines</a>
           <a href="/#/finddoctors" class="text-base font-medium text-gray-500 hover:text-gray-900">Doctors</a>
+          <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">Services</a>
   
         </PopoverGroup>
+        <div class="hidden opacity-0 items-center justify-end md:flex md:flex-1 lg:w-0">
+          <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">Sign in</a>
+          <a href="#" class="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Sign up</a>
+        </div>
       </div>
   
       <transition enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
@@ -40,8 +45,8 @@
               <div class="mt-6">
                 <nav class="grid grid-cols-1 gap-7">
                   <a v-for="solution in solutions" :key="solution.name" :href="solution.href" class="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50">
-                    <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md">
-                      <tu-icon>{{  solution.icon  }}</tu-icon>
+                    <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-indigo-500 text-white">
+                      <component :is="solution.icon" class="h-6 w-6" aria-hidden="true" />
                     </div>
                     <div class="ml-4 text-base font-medium text-gray-900">{{ solution.name }}</div>
                   </a>
@@ -56,28 +61,30 @@
 
 <script>
 import { Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/vue'
-import { tuIcon } from "tukal-vue"
 import {
+    InformationCircleIcon,
+    UserGroupIcon,
+    KeyIcon,
     XMarkIcon,
     Bars3Icon,
 } from '@heroicons/vue/24/outline'
 export default {
     components: {
-        Popover, PopoverButton, PopoverGroup, PopoverPanel, XMarkIcon, Bars3Icon, tuIcon
+        Popover, PopoverButton, PopoverGroup, PopoverPanel, XMarkIcon, Bars3Icon
     },
     setup() {
         const solutions = [
             {
                 name: 'Diseases',
-                icon: "people",
+                icon: KeyIcon,
                 href: "/#/diseases"
             },
             {
                 name: 'Medicines',
-                icon: "local_pharmacy",
+                icon: InformationCircleIcon,
                 href: "/#/medicines"
             },
-            { name: 'Doctors', icon: "local_hospital" , href: "/#/finddoctors" },
+            { name: 'Doctors', icon: UserGroupIcon, href: "/#/finddoctors" },
         ]
         return { solutions }
     }

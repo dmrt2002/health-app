@@ -3,15 +3,20 @@ import Signup from "../components/SignupPage.vue"
 import Dashboard from "../components/DoctorDashboard.vue"
 import Human from "../components/HumanPage.vue"
 import FindDoctors from "../components/FindDoctorsPage.vue"
-import HomePage from "../components/HomePage.vue"
 import  MedicinesPage from "../components/MedicinesPage.vue"
 import  DiseasesPage from "../components/DiseasesPage.vue"
 import Chat from "../components/ChatView.vue"
+import HomePage from "../components/HomePage.vue"
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
     {
-        path: '/',
+        path: '/home',
+        name: 'home',
+        component: Login
+    },
+    {
+        path: '/login',
         name: 'login',
         component: Login
     },
