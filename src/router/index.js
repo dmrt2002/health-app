@@ -2,6 +2,7 @@ import Login from "../components/LoginPage.vue"
 import Signup from "../components/SignupPage.vue"
 import Dashboard from "../components/DoctorDashboard.vue"
 import Human from "../components/HumanPage.vue"
+import Chat from "../components/ChatView.vue"
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
@@ -24,6 +25,11 @@ const routes = [
         path: '/human',
         name: 'human',
         component: Human
+    },
+    {
+        path: '/chat',
+        name: 'chat',
+        component: Chat
     },
 ]
 
