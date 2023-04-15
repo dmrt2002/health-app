@@ -2,7 +2,8 @@ const Doctor = require("../modals/Doctor");
 const Patients = require("../modals/Patients");
 const jwt = require("jsonwebtoken");
 const cookie = require("cookie");
-const doctors = require("../doctors")
+const medicines = require("../medicines.js")
+const diseases = require("../diseases.js")
 
 exports.registerUser = async (req, res) => {
   var name = req.body.name;
@@ -32,44 +33,6 @@ exports.registerUser = async (req, res) => {
         }
       }
     );
-};
-
-exports.registerDoctor = async (req, res) => {
-  for(let i = 0 ; i < doctors.length; i++) {
-    var fname = doctors[i].FirstName;
-    var lname = doctors[i].LastName;
-    var gender = doctors[i].Gender;
-    var title = doctors[i].Title
-    var address = doctors[i].Address1
-    var city = doctors[i].City;
-    var state = doctors[i].State;
-    var specialty = doctors[i].SubSpecialist;
-    var email = "doctor@gmail.com";
-    var password = "doctor@me";
-    Doctor.create(
-      {
-        fname: fname,
-        city: city,
-        email:email,
-        password: password,
-        state:state,
-        address: address,
-        lname: lname,
-        specialist: specialty,
-        title: title,
-        gender: gender,
-        patients: [],
-        appointments: []
-      },
-      async function (err, user) {
-        if (err) {
-          res.status(400).json(err);
-        } else {
-          console.log(user)
-        }
-      }
-    );
-  }
 };
 
 exports.userLogin = async (req, res) => {
@@ -114,3 +77,25 @@ exports.doctorLogin = async (req, res) => {
     res.status(400).json("Incorrect Password");
   }
 };
+
+exports.getDoctors = async (req, res) => {
+  let doctors = await Doctor.find();
+  const results = doctors.filter(obj => {
+    return obj.city === req.body.city;
+  });
+  res.status(200).json(results);
+}
+
+exports.getMedicines = async (req, res) => {
+  let results = medicines.results.filter(obj => {
+    return obj.openfda.generic_name !== undefined && obj.openfda.brand_name !== undefined
+    && obj.openfda.manufacturer_name !== undefined && obj.openfda.pharm_class_pe !== undefined
+  })
+  res.status(200).json(results.slice(0,30));
+}
+
+exports.getMedicines = async (req, res) => {
+  console.log(diseases);
+}
+
+

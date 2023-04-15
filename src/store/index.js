@@ -1,29 +1,39 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
 import createPersistedState from "vuex-persistedstate";
 
 export default createStore({
   plugins: [createPersistedState()],
   state: {
     token: "",
-    products: [],
-    email: ""
+    appointments: [],
+    email: "",
+    city: "",
   },
   mutations: {
-    storeToken(state,token) {
-        state.token = token
-      },
+    storeToken(state, token) {
+      state.token = token;
+    },
+    storeCity(state, city) {
+      state.city = city;
+    },
   },
   actions: {
     storeToken(context, token) {
-        context.commit('storeToken', token)
-      }
+      context.commit("storeToken", token);
+    },
+    storeCity(context, city) {
+      context.commit("storeCity", city);
+    },
   },
   getters: {
     getToken(state) {
-        return state.token
-      },
-    getEmail (state) {
-        return state.email
-    }
-  }
-})
+      return state.token;
+    },
+    getCity(state) {
+      return state.city;
+    },
+    getEmail(state) {
+      return state.email;
+    },
+  },
+});

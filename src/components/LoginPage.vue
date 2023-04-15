@@ -339,7 +339,7 @@ export default {
     });
     let redirect = async () => {
         try {
-          let res = await axios.post("http://localhost:5000/farmer/login", fstate);
+          let res = await axios.post("http://localhost:5000/doctor/login", fstate);
           if (res.status !== 401) {
             store.dispatch("storeToken", res.data.token);
             router.push("/admin");
@@ -350,12 +350,11 @@ export default {
       }
       let redirectUser = async () => {
         try {
-          let res = await axios.post("http://localhost:5000/user/login", ustate);
+          let res = await axios.post("http://localhost:5000/patients/login", ustate);
           if (res.status !== 401) {
-            store.dispatch("storeToken", res.data.token);
-            store.dispatch("storeEmail", ustate.uemail);
-            store.dispatch('emptyProducts');
-            router.push("/home");
+            store.dispatch("storeToken", res.data.admin._id);
+            store.dispatch("storeCity", res.data.admin.state);
+            router.push("/finddoctors");
           }
         } catch (e) {
             console.log(e)

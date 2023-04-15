@@ -18,7 +18,6 @@ const userSchema = mongoose.Schema({
 });
 //this method search for a user by email and password.
 userSchema.statics.findByCredentials = async (email, password) => {
-    console.log(email,password)
   const user = await Patients.findOne({ email })
   if (user === null) {
     return user;

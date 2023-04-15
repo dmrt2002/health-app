@@ -3,7 +3,7 @@
     <!-- header -->
     <header class = "header bg-blue">
         <nav class = "navbar bg-blue">
-            <div class = "container flex">
+            <div class = "container d-flex">
                 <a href = "index.html" class = "navbar-brand">
                     <img src = "logo.png" alt = "site logo">
                 </a>
@@ -40,8 +40,8 @@
                     </ul>
                     <div class = "search-bar">
                         <form>
-                            <div class = "search-bar-box flex">
-                                <span class = "search-icon flex">
+                            <div class = "search-bar-box d-flex">
+                                <span class = "search-icon d-flex">
                                     <img src = "../assets/search-icon-dark.png">
                                 </span>
                                 <input type = "search" class = "search-control" placeholder="Search here">
@@ -84,7 +84,7 @@
                         <p class = "text text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae molestias delectus facilis, temporibus eum consectetur, a debitis exercitationem quae distinctio aliquid ea ipsam vitae esse amet soluta maxime dolorem? Inventore ut maiores illo ipsum nisi, nulla eligendi unde reiciendis quod voluptas velit sit voluptate perferendis cum pariatur molestiae tenetur repellat!</p>
                         <a href = "#" class = "btn btn-white">Learn More</a>
                     </div>
-                    <div class = "about-right flex">
+                    <div class = "about-right d-flex">
                         <div class = "img">
                             <img src = "../assets/about-img.png">
                         </div>
@@ -109,7 +109,7 @@
                 <div class = "section-head text-center">
                     <h2 class = "lead">The Best Doctor gives the least medicines</h2>
                     <p class = "text text-lg">A perfect way to show your hospital services</p>
-                    <div class = "line-art flex">
+                    <div class = "line-art d-flex">
                         <div></div>
                         <img src = "../assets/4-dots.png">
                         <div></div>
@@ -178,9 +178,9 @@
 
                 <div class = "doc-panel-inner grid">
                     <div class = "doc-panel-item">
-                        <div class = "img flex">
+                        <div class = "img d-flex">
                             <img src = "../assets/doc-1.png" alt = "doctor image">
-                            <div class = "info text-center bg-blue text-white flex">
+                            <div class = "info text-center bg-blue text-white d-flex">
                                 <p class = "lead">samuel goe</p>
                                 <p class = "text-lg">Medicine</p>
                             </div>
@@ -188,9 +188,9 @@
                     </div>
 
                     <div class = "doc-panel-item">
-                        <div class = "img flex">
+                        <div class = "img d-flex">
                             <img src = "../assets/doc-2.png" alt = "doctor image">
-                            <div class = "info text-center bg-blue text-white flex">
+                            <div class = "info text-center bg-blue text-white d-flex">
                                 <p class = "lead">elizabeth ira</p>
                                 <p class = "text-lg">Cardiology</p>
                             </div>
@@ -198,9 +198,9 @@
                     </div>
 
                     <div class = "doc-panel-item">
-                        <div class = "img flex">
+                        <div class = "img d-flex">
                             <img src = "../assets/doc-3.png" alt = "doctor image">
-                            <div class = "info text-center bg-blue text-white flex">
+                            <div class = "info text-center bg-blue text-white d-flex">
                                 <p class = "lead">tanya collins</p>
                                 <p class = "text-lg">Medicine</p>
                             </div>
@@ -220,7 +220,7 @@
                 </div>
                 <div class = "package-service-inner grid">
                     <div class = "package-service-item bg-white">
-                        <div class = "icon flex">
+                        <div class = "icon d-flex">
                             <i class = "fas fa-phone fa-2x"></i>
                         </div>
                         <h3>Regular Case</h3>
@@ -229,7 +229,7 @@
                     </div>
 
                     <div class = "package-service-item bg-white">
-                        <div class = "icon flex">
+                        <div class = "icon d-flex">
                             <i class = "fas fa-calendar-alt fa-2x"></i>
                         </div>
                         <h3>Serious Case</h3>
@@ -238,7 +238,7 @@
                     </div>
 
                     <div class = "package-service-item bg-white">
-                        <div class = "icon flex">
+                        <div class = "icon d-flex">
                             <i class = "fas fa-comments fa-2x"></i>
                         </div>
                         <h3>Emergency Case</h3>
@@ -265,7 +265,7 @@
                             <h4>Inspiring stories of person and family centered care during a global pandemic.</h4>
                             <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptas eius recusandae sunt obcaecati esse facere cumque. Aliquid, cupiditate debitis.</p>
                             <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quia ipsam, quis iure sed nulla.</p>
-                            <div class = "info flex">
+                            <div class = "info d-flex">
                                 <small class = "text text-sm"><i class = "fas fa-clock"></i> October 27, 2021</small>
                                 <small class = "text text-sm"><i class = "fas fa-comment"></i> 5 comments</small>
                             </div>
@@ -280,7 +280,7 @@
                             <h4>Inspiring stories of person and family centered care during a global pandemic.</h4>
                             <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptas eius recusandae sunt obcaecati esse facere cumque. Aliquid, cupiditate debitis.</p>
                             <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quia ipsam, quis iure sed nulla.</p>
-                            <div class = "info flex">
+                            <div class = "info d-flex">
                                 <small class = "text text-sm"><i class = "fas fa-clock"></i> October 27, 2021</small>
                                 <small class = "text text-sm"><i class = "fas fa-comment"></i> 5 comments</small>
                             </div>
@@ -295,7 +295,7 @@
                             <h4>Inspiring stories of person and family centered care during a global pandemic.</h4>
                             <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptas eius recusandae sunt obcaecati esse facere cumque. Aliquid, cupiditate debitis.</p>
                             <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quia ipsam, quis iure sed nulla.</p>
-                            <div class = "info flex">
+                            <div class = "info d-flex">
                                 <small class = "text text-sm"><i class = "fas fa-clock"></i> October 27, 2021</small>
                                 <small class = "text text-sm"><i class = "fas fa-comment"></i> 5 comments</small>
                             </div>
@@ -327,7 +327,7 @@
 
                 <div class = "footer-item">
                     <h3 class = "footer-head">tags</h3>
-                    <ul class = "tags-list flex">
+                    <ul class = "tags-list d-flex">
                         <li>medical care</li>
                         <li>emergency</li>
                         <li>therapy</li>
@@ -367,10 +367,10 @@
             </div>
 
             <div class = "footer-links">
-                <ul class = "flex">
-                    <li><a href = "#" class = "text-white flex"> <i class = "fab fa-facebook-f"></i></a></li>
-                    <li><a href = "#" class = "text-white flex"> <i class = "fab fa-twitter"></i></a></li>
-                    <li><a href = "#" class = "text-white flex"> <i class = "fab fa-linkedin"></i></a></li>
+                <ul class = "d-flex">
+                    <li><a href = "#" class = "text-white d-flex"> <i class = "fab fa-facebook-f"></i></a></li>
+                    <li><a href = "#" class = "text-white d-flex"> <i class = "fab fa-twitter"></i></a></li>
+                    <li><a href = "#" class = "text-white d-flex"> <i class = "fab fa-linkedin"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -378,3 +378,7 @@
     </div>
     <!-- end of footer  -->
 </template>
+
+<script>
+</script>
+
