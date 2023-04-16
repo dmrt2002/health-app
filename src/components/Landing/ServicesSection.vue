@@ -141,7 +141,7 @@
                                     :class="{
                                       bgblue900: currentTopic === 'about',
                                     }">
-                                    <p class="text-sm">About a Diseases ?</p>
+                                    <p class="text-sm">About a Topic?</p>
                                   </div>
                                   <span class="text-xs text-gray-500 leading-none"></span>
                                 </div>
@@ -205,16 +205,112 @@
                                 <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
                               </div>
                               <div v-if="end">
-                              <div  v-for="fitAns in fitAnswers" :key="fitAns.MyHFTitle" class="flex w-full mt-2 space-x-3 max-w-xs">
+                                <div v-for="fitAns in fitAnswers" :key="fitAns.MyHFTitle"
+                                  class="flex w-full mt-2 space-x-3 max-w-xs">
+                                  <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+                                  <div>
+                                    <div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
+                                      <p class="text-sm">{{ removeTags(fitAns.MyHFTitle) }}</p>
+                                      <p class="text-sm">{{ removeTags(fitAns.MyHFDescription) }}</p>
+                                    </div>
+                                    <span class="text-xs text-gray-500 leading-none"></span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div v-if="currentTopic === 'about'" class="flex w-full mt-2 space-x-3 max-w-xs">
                                 <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
                                 <div>
                                   <div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
-                                    <p class="text-sm">{{ removeTags(fitAns.MyHFTitle) }}</p>
-                                    <p class="text-sm">{{ removeTags(fitAns.MyHFDescription) }}</p>
+                                    <p class="text-sm">
+                                      Please select any one of these options</p>
                                   </div>
                                   <span class="text-xs text-gray-500 leading-none"></span>
                                 </div>
                               </div>
+                              <div v-if="currentTopic === 'about'"
+                                class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end cursor-pointer">
+                                <div>
+                                  <div class="bg-white border-blue-300 border text-blue-600 p-3" @click="about('first')"
+                                    :class="{
+                                      bgblue900: currentAbout === 'first',
+                                    }">
+                                    <p class="text-sm">Protect Yourself from Seasonal Flu</p>
+                                  </div>
+                                  <span class="text-xs text-gray-500 leading-none"></span>
+                                </div>
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+                              </div>
+                              <div v-if="currentTopic === 'about'"
+                                class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end cursor-pointer">
+                                <div>
+                                  <div class="bg-white border-blue-300 border text-blue-600 p-3" @click="about('second')"
+                                    :class="{
+                                      bgblue900: currentAbout === 'second',
+                                    }">
+                                    <p class="text-sm">Talk with Your Doctor About Newborn Screening</p>
+                                  </div>
+                                  <span class="text-xs text-gray-500 leading-none"></span>
+                                </div>
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+                              </div>
+                              <div v-if="currentTopic === 'about'"
+                                class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end cursor-pointer">
+                                <div>
+                                  <div class="bg-white border-blue-300 border text-blue-600 p-3" @click="about('third')"
+                                    :class="{
+                                      bgblue900: currentAbout === 'third',
+                                    }">
+                                    <p class="text-sm">Get Enough Sleep</p>
+                                  </div>
+                                  <span class="text-xs text-gray-500 leading-none"></span>
+                                </div>
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+                              </div>
+                              <div v-if="currentTopic === 'about' && currentAbout === 'first'"
+                                class="flex w-full mt-2 space-x-3 max-w-xs">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+                                <div>
+                                  <div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
+                                    <p class="text-sm">The single best way to reduce the risk of seasonal flu and its potentially serious complications is to get vaccinated each year, but good health habits like avoiding people who are sick, covering your cough and washing your hands often can help stop the spread of germs and prevent respiratory illnesses like flu. There also are flu antiviral drugs that can be used to treat and prevent flu
+                                    </p>
+                                  </div>
+                                  <span class="text-xs text-gray-500 leading-none"></span>
+                                </div>
+                              </div>
+                              <div v-if="currentTopic === 'about' && currentAbout === 'second'"
+                                class="flex w-full mt-2 space-x-3 max-w-xs">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+                                <div>
+                                  <div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
+                                    <p class="text-sm">Talk about newborn screening with your doctor or midwife before
+                                      your baby is born. Newborn screening includes tests that check for certain diseases
+                                      and conditions in newborn babies.
+
+                                      Newborn screening lets doctors find these diseases and conditions early — before
+                                      your baby shows any signs of a problem. Early treatment is important to keep your
+                                      baby healthy and developing normally.
+
+                                      Your baby will get most tests before leaving the hospital. The tests don't cause any
+                                      harm or risk to your baby.
+                                    </p>
+                                  </div>
+                                  <span class="text-xs text-gray-500 leading-none"></span>
+                                </div>
+                              </div>
+                              <div v-if="currentTopic === 'about' && currentAbout === 'third'"
+                                class="flex w-full mt-2 space-x-3 max-w-xs">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+                                <div>
+                                  <div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
+                                    <p class="text-sm">People often cut back on their sleep for work, for family demands,
+                                      or even to watch a good show on television. But if not getting enough sleep is a
+                                      regular part of your routine, you may be at an increased risk for obesity, type 2
+                                      diabetes, high blood pressure, heart disease and stroke, poor mental health, and
+                                      even early death.
+                                    </p>
+                                  </div>
+                                  <span class="text-xs text-gray-500 leading-none"></span>
+                                </div>
                               </div>
                             </div>
                             <div class="bg-gray-300 p-4">
@@ -248,8 +344,6 @@ import { ChatBubbleLeftEllipsisIcon } from "@heroicons/vue/24/solid";
 import { ref } from '@vue/runtime-core';
 import axios from "axios"
 import { Dialog, TransitionChild, TransitionRoot } from "@headlessui/vue";
-// eslint-disable-next-line
-import VueScrollTo from 'vue-scrollto'
 
 export default {
   name: "ServicesSection",
@@ -258,7 +352,6 @@ export default {
     Dialog,
     TransitionChild,
     TransitionRoot,
-
   },
 
   data() {
@@ -293,13 +386,21 @@ export default {
     let currentQuestion = ref(0);
     const tobacco = ref("");
     let end = ref(false)
+    let currentAbout = ref("");
     const disease = (topic) => {
-      currentTopic.value = topic
-      if (topic == 'fit') {
-        currentQuestion.value = 1;
-        enable.value = true
+      if (currentTopic.value === "") {
+        currentTopic.value = topic
+        if (topic == 'fit') {
+          currentQuestion.value = 1;
+          enable.value = true
+        }
       }
     }
+    const about = (topic) => {
+      console.log(topic)
+      currentAbout.value = topic
+    }
+
     let fitAnswers = ref()
     function removeTags(str) {
       if ((str === null) || (str === ''))
@@ -322,19 +423,17 @@ export default {
       else if (currentQuestion.value === 3) {
         tobacco.value = answer.value
         answer.value = ""
-        let res = await axios.get(`https://health.gov/myhealthfinder/api/v3/myhealthfinder.json?lang=en&age=21&tobaccoUse=0&sexuallyActive=1&pregnant=1`)
-        fitAnswers.value = res.data.Result.Resources.all.Resource.slice(0,5);
+        let res = await axios.get(`https://health.gov/myhealthfinder/api/v3/myhealthfinder.json?lang=en&age=${age}&tobaccoUse=${tobacco}&sexuallyActive=1&pregnant=${pregnant}`)
+        fitAnswers.value = res.data.Result.Resources.all.Resource.slice(0, 5);
         end.value = true
       }
     }
-    return { cart, age, answer, tobacco, pregnant, open, end, disease, currentTopic, answerQuestion, currentQuestion, enable, fitAnswers, removeTags }
+    return { cart, age, about, answer, tobacco, pregnant, open, end, disease, currentTopic, answerQuestion, currentQuestion, enable, fitAnswers, removeTags, currentAbout }
   }
 };
 </script>
 
-<style>
-.bgblue900 {
+<style>.bgblue900 {
   background: rgb(45, 134, 228);
   color: white;
-}
-</style>
+}</style>
