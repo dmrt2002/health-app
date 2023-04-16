@@ -105,11 +105,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 Home page
 
-![Home](home.png)
+![Home](https://i.postimg.cc/V0JfsbLt/home.png)
 
 Login
 
-![Login](login.png)
+![Login](https://i.postimg.cc/FdWFQxmm/login.png)
 
 Appointments
 
@@ -117,19 +117,19 @@ Appointments
 
 Diseases
 
-![Diseases](diseases.png)
+![Diseases](https://i.postimg.cc/QBDdgt0L/diseases.png)
 
 Medicines
 
-![Medicines](medicines.png)
+![Medicines](https://i.postimg.cc/bGRNmhBZ/medicines.png)
 
 Doctors
 
-![Doctors](doctors.png)
+![Doctors](https://i.postimg.cc/0bLQQZSy/doctors.png)
 
 Doctors Dashboard
 
-![Dashboard](doctorsdashboard.png)
+![Dashboard](https://i.postimg.cc/bZkv2b0H/doctorsdashboard.png)
 
 
 
