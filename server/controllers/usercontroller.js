@@ -72,7 +72,7 @@ exports.doctorLogin = async (req, res) => {
       path: "/",
       maxAge: 3600
     }))
-    res.status(200).json({ token });
+    res.status(200).json({ admin });
   } catch (err) {
     res.status(400).json("Incorrect Password");
   }
@@ -144,6 +144,42 @@ catch(e) {
     },
   });
   res.status(200).json("successful")
+}
+
+exports.getAllAppointments = async (req, res) => {
+  let doctor = await Doctor.find({_id: req.body.id});
+  res.status(200).json(doctor[0]);
+}
+
+exports.updateStatus = async (req, res) => {
+  let patient = await Patients.findOne({email: req.body.email});
+  let doctor = await Doctor.findOne({_id: req.body.id})
+  await Patients.findOneAndUpdate({
+    email: req.body.email,
+  } , {
+    $push: {
+      done: {
+        id: doctor._id,
+        status: req.body.status
+      }
+    },
+  });
+  await Doctor.findOneAndUpdate({
+    _id: req.body.id,
+  } , {
+    $push: {
+      done: {
+        id: patient._id,
+        status: req.body.status
+      }
+    },
+  });
+  res.status(200).json("successfull")
+}
+
+exports.getPatient = async (req, res) => {
+  let patient = await Patients.findOne({ email: req.body.email}) ;
+  res.status(200).json(patient.done)
 }
 
 
