@@ -7,16 +7,14 @@
         <polygon class="text-gray-900 fill-current" points="2560 0 2560 100 0 100"></polygon>
       </svg>
     </div>
-    <div class="container mx-auto px-4 lg:pt-24">
+    <div class="container mx-auto px-4 lg:pt-16">
       <div class="flex flex-wrap text-center justify-center">
         <div class="w-full lg:w-6/12 px-4">
           <h2 class="text-4xl font-semibold text-white mt-4">
-            Build something
+            What we offer
           </h2>
           <p class="text-lg leading-relaxed mt-4 mb-4 text-gray-500">
-            Put the potentially record low maximum sea ice extent tihs year down
-            to low ice. According to the National Oceanic and Atmospheric
-            Administration, Ted, Scambos.
+             We offer a range of services to support the health and wellbeing of individuals and communities. Some of the services we offer include:
           </p>
         </div>
       </div>
@@ -27,11 +25,10 @@
             <i class="fas fa-medal text-xl"></i>
           </div>
           <h6 class="text-xl mt-5 font-semibold text-white">
-            Excelent Services
+            <span class="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black">Personalized</span> Chatbot
           </h6>
           <p class="mt-2 mb-4 text-gray-500">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            Our personalized AI chat bot is designed to provide information about a user's health by asking a few simple questions.
           </p>
         </div>
         <div class="w-full lg:w-3/12 px-4 text-center">
@@ -40,11 +37,10 @@
             <i class="fas fa-poll text-xl"></i>
           </div>
           <h5 class="text-xl mt-5 font-semibold text-white">
-            Grow your market
+            <span class="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black">Blazingly</span> fast Appointments
           </h5>
           <p class="mt-2 mb-4 text-gray-500">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            Our Appointment mechanism helps you find the best doctors within your premises on your date of Choice without any hassle.
           </p>
         </div>
         <div class="w-full lg:w-3/12 px-4 text-center">
@@ -52,10 +48,9 @@
             class="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
             <i class="fas fa-lightbulb text-xl"></i>
           </div>
-          <h5 class="text-xl mt-5 font-semibold text-white">Launch time</h5>
+          <h5 class="text-xl mt-5 font-semibold text-white"><span class="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black">Informative</span> Blogs</h5>
           <p class="mt-2 mb-4 text-gray-500">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            Unlock the power of knowledge with our app's blog section! Discover expert insights, stay up-to-date with the latest trends, and unleash your full potential with every click.
           </p>
         </div>
         <!-- Chatbot -->
