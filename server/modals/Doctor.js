@@ -33,6 +33,9 @@ const userSchema = mongoose.Schema({
   gender: {
     type: String
   },
+  done: {
+    type: Array
+  }
 });
 userSchema.statics.findByCredentials = async (email, password) => {
     console.log(email,password)

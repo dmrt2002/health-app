@@ -341,8 +341,9 @@ export default {
         try {
           let res = await axios.post("http://localhost:5000/doctor/login", fstate);
           if (res.status !== 401) {
-            store.dispatch("storeToken", res.data.token);
-            router.push("/admin");
+            console.log(res.data.admin._id)
+            store.dispatch("storeToken", res.data.admin._id);
+            router.push("/dashboard");
           }
         } catch (e) {
           console.log(e)
