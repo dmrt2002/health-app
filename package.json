@@ -11,7 +11,7 @@
     "@headlessui/vue": "^1.7.13",
     "@heroicons/vue": "^2.0.17",
     "@vue-hero-icons/outline": "^1.7.2",
-    "@vue-hero-icons/solid":"^1.7.2",
+    "@vue-hero-icons/solid": "^1.7.2",
     "axios": "^1.2.5",
     "core-js": "^3.8.3",
     "jsonwebtoken": "^9.0.0",
@@ -19,6 +19,7 @@
     "tukal-vue": "^0.1.113",
     "vue": "^3.2.13",
     "vue-router": "^4.1.6",
+    "vue-scrollto": "^2.20.0",
     "vuex": "^4.1.0",
     "vuex-persistedstate": "^4.1.0"
   },

@@ -54,10 +54,19 @@
           </p>
         </div>
         <!-- Chatbot -->
-        <button @click="cart = true" class="inline-block h-12 w-12 lg:mb-0 mr-4 fixed bottom-5 right-5 z-50">
+        <div>
+          
+        <div v-if="showTooltip" class="tooltip border-img">
+        <p>Click here to chat with us!</p>
+      </div>
+        <button
+        @click="cart = true"
+          class="inline-block h-12 w-12 lg:mb-0 mr-4 fixed bottom-5 right-5 z-50"
+        >
           <ChatBubbleLeftEllipsisIcon
             class="h-full w-full rounded-full bg-white overflow-hidden text-indigo-500 shadow-lg p-2 hover:drop-shadow-glow" />
         </button>
+        </div>
 
         <!-- Chatbot end -->
 
@@ -339,6 +348,28 @@ export default {
     TransitionChild,
     TransitionRoot,
   },
+
+  data() {
+    return {
+      showTooltip: false
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    handleScroll() {
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+      if (scrollPosition > 500) { 
+        this.showTooltip = true
+      setTimeout(() => {
+        this.showTooltip = false
+      }, 7000)
+        window.removeEventListener('scroll', this.handleScroll)
+
+      }
+    }
+},
   setup() {
     const open = ref(false);
     const cart = ref(false);
