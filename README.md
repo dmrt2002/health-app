@@ -105,32 +105,39 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 Home page
 
-![Home](https://i.postimg.cc/V0JfsbLt/home.png)
+![home.png](https://i.postimg.cc/VNS8q4H5/h1.png)
+
+Chat Bot UI
+
+![chatbot.png](https://i.postimg.cc/02d2jtLs/chatbot.png)
 
 Login
 
-![Login](https://i.postimg.cc/FdWFQxmm/login.png)
-
-Appointments
-
-![Appointments](https://i.postimg.cc/KRKjxCRW/appointments.png)
+![login.png](https://i.postimg.cc/ncZpy4Mw/lc.png)
 
 Diseases
 
-![Diseases](https://i.postimg.cc/QBDdgt0L/diseases.png)
+![Diseases](https://i.postimg.cc/28wrr1Zj/frame-generic-dark.png)
 
 Medicines
 
-![Medicines](https://i.postimg.cc/bGRNmhBZ/medicines.png)
+![Medicines](https://i.postimg.cc/kMW7Y1Mb/frame-generic-dark-3.png)
 
 Doctors
 
-![Doctors](https://i.postimg.cc/0bLQQZSy/doctors.png)
+![Doctors](https://i.postimg.cc/XqK3ZJ18/frame-generic-dark-2.png)
+
+Appointments
+
+![Appointments](https://i.postimg.cc/YSVtZTm1/frame-generic-dark-1.png)
 
 Doctors Dashboard
 
-![Dashboard](https://i.postimg.cc/bZkv2b0H/doctorsdashboard.png)
+![Dashboard](https://i.postimg.cc/tTx9jDh8/dc.png)
 
+Services
+
+![footer.png](https://i.postimg.cc/VvPmLMgv/fc.png)
 
 
 ## 🔗 Links
