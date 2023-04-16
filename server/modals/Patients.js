@@ -14,6 +14,12 @@ const userSchema = mongoose.Schema({
   },
   appointments: {
     type: Array
+  },
+  messages: {
+    type: Array
+  },
+  done: {
+    type: Array
   }
 });
 //this method search for a user by email and password.
