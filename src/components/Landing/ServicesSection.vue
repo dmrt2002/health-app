@@ -418,8 +418,9 @@ export default {
       else if (currentQuestion.value === 3) {
         tobacco.value = answer.value
         answer.value = ""
-        let res = await axios.get(`https://health.gov/myhealthfinder/api/v3/myhealthfinder.json?lang=en&age=${age}&tobaccoUse=${tobacco}&sexuallyActive=1&pregnant=${pregnant}`)
-        fitAnswers.value = res.data.Result.Resources.all.Resource.slice(0, 5);
+        console.log(age.value, tobacco.value, pregnant.value)
+        let res = await axios.get(`https://health.gov/myhealthfinder/api/v3/myhealthfinder.json?lang=en&age=${age.value}&tobaccoUse=${tobacco.value}&sexuallyActive=1&pregnant=${pregnant.value}`)
+        fitAnswers.value = res.data.Result.Resources.all.Resource;
         end.value = true
       }
     }
