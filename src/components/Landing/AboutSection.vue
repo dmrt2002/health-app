@@ -1,5 +1,5 @@
 <template>
-  <section class="relative py-20 bg-white" id="about">
+  <section class="relative py-10 bg-white" id="about">
     <div
       class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
       style="height: 80px; transform: translateZ(0px);"
@@ -22,7 +22,7 @@
           <img
             alt="..."
             class="max-w-full rounded-lg shadow-lg"
-            src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80"
+            src="https://images.unsplash.com/photo-1631815585553-a8a8d2361e2e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80"
           >
         </div>
         <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
@@ -32,10 +32,10 @@
             >
               <i class="fas fa-rocket text-xl"></i>
             </div>
-            <h3 class="text-3xl font-semibold">A growing company</h3>
+            <h3 class="text-3xl font-semibold">A growing company!</h3>
             <p
               class="mt-4 text-lg leading-relaxed text-gray-600"
-            >The extension comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go.</p>
+            > <span class="text-lg font-semibold">Health Vault</span>, a platform that connects patients with professional experts around the world.</p>
             <ul class="list-none mt-6">
               <li class="py-2">
                 <div class="flex items-center">
@@ -47,7 +47,7 @@
                     </span>
                   </div>
                   <div>
-                    <h4 class="text-gray-600">Carefully crafted components</h4>
+                    <h4 class="text-gray-600">Qualified healthcare professionals available to provide medical consultations</h4>
                   </div>
                 </div>
               </li>
@@ -61,7 +61,7 @@
                     </span>
                   </div>
                   <div>
-                    <h4 class="text-gray-600">Amazing page examples</h4>
+                    <h4 class="text-gray-600">Medical writing team produces high-quality scientific and medical content that is accurate, reliable, and accessible to diverse audiences.</h4>
                   </div>
                 </div>
               </li>
@@ -75,7 +75,7 @@
                     </span>
                   </div>
                   <div>
-                    <h4 class="text-gray-600">Dynamic components</h4>
+                    <h4 class="text-gray-600">Our team of healthcare professionals can provide personalized medicine suggestions based on a user's symptoms, medical history, and other relevant factors.</h4>
                   </div>
                 </div>
               </li>
