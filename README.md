@@ -113,7 +113,7 @@ Login
 
 Appointments
 
-![Appointments](appointments.png)
+![Appointments](https://i.postimg.cc/KRKjxCRW/appointments.png)
 
 Diseases
 
