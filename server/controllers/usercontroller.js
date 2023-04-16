@@ -151,6 +151,11 @@ exports.getAllAppointments = async (req, res) => {
   res.status(200).json(doctor[0]);
 }
 
+exports.getAllAppointmentsPatient = async (req, res) => {
+  let patient = await Patients.find({_id: req.body.id});
+  res.status(200).json(patient[0]);
+}
+
 exports.updateStatus = async (req, res) => {
   let patient = await Patients.findOne({email: req.body.email});
   let doctor = await Doctor.findOne({_id: req.body.id})
@@ -182,4 +187,8 @@ exports.getPatient = async (req, res) => {
   res.status(200).json(patient.done)
 }
 
+exports.getDoctor = async (req, res) => {
+  let doctor = await Doctor.findOne({ fname: req.body.fullname}) ;
+  res.status(200).json(doctor.done)
+}
 

@@ -1,47 +1,44 @@
 <template>
+    <NavBar />
     <div class="showcase-component">
-
-        <body class="py-8 flex">
+        <body class="flex">
             <div class="bg-white w-screen py-5">
                 <div class="mb-5 sm:mb-10 rounded-tl-lg rounded-tr-lg">
-                    <div class="flex justify-center items-center">
-                        <img src="../assets/L.png" class="h-24" />
-                    </div>
                     <div class="flex justify-evenly mt-8">
                         <div>
                             <div class="w-full sm:max-w-xs">
                                 <label for="search" class="sr-only">Search</label>
                                 <div class="relative">
                                     <div class="
-                                                      pointer-events-none
-                                                      absolute
-                                                      inset-y-0
-                                                      left-0
-                                                      pl-3
-                                                      flex
-                                                      items-center
-                                                    ">
+                                                  pointer-events-none
+                                                  absolute
+                                                  inset-y-0
+                                                  left-0
+                                                  pl-3
+                                                  flex
+                                                  items-center
+                                                ">
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </div>
                                     <input id="search" name="search" v-model="search" class="
-                                                      block
-                                                      w-full
-                                                      bg-white
-                                                      border border-gray-300
-                                                      rounded-md
-                                                      py-2
-                                                      pl-10
-                                                      pr-3
-                                                      text-sm
-                                                      placeholder-gray-500
-                                                      focus:outline-none
-                                                      focus:text-gray-900
-                                                      focus:placeholder-gray-400
-                                                      focus:ring-1
-                                                      focus:ring-indigo-500
-                                                      focus:border-indigo-500
-                                                      sm:text-sm
-                                                    " placeholder="Search" type="search" />
+                                                  block
+                                                  w-full
+                                                  bg-white
+                                                  border border-gray-300
+                                                  rounded-md
+                                                  py-2
+                                                  pl-10
+                                                  pr-3
+                                                  text-sm
+                                                  placeholder-gray-500
+                                                  focus:outline-none
+                                                  focus:text-gray-900
+                                                  focus:placeholder-gray-400
+                                                  focus:ring-1
+                                                  focus:ring-indigo-500
+                                                  focus:border-indigo-500
+                                                  sm:text-sm
+                                                " placeholder="Search" type="search" />
                                 </div>
                             </div>
                         </div>
@@ -90,14 +87,6 @@
                                             <tu-icon v-else>clear</tu-icon>
                                         </span>
                                     </td>
-                                    <td class="pl-10" v-if="tempStatus === 'pending'">
-                                        <div class="flex items-center">
-                                            <tu-button primary width="100px" @click="updateStatus(data)" style="margin: 5px"
-                                                block>
-                                                Update Status
-                                            </tu-button>
-                                        </div>
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -105,29 +94,6 @@
                 </div>
             </div>
         </body>
-        <tu-dialog width="550px" v-model="activeDialog">
-            <template v-slot:header>
-                <h4 class="mt-4">Status</h4>
-            </template>
-            <div class="center">
-                <div>
-                    <table>
-                        <tr>
-                            <td>
-                                <tu-button success width="100px" @click="update('accept')" style="margin: 5px" block>
-                                    Accept
-                                </tu-button>
-                            </td>
-                            <td>
-                                <tu-button danger width="100px" @click="update('reject')" style="margin: 5px" block>
-                                    Reject
-                                </tu-button>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </tu-dialog>
     </div>
 </template>
 
@@ -135,10 +101,12 @@
 import { defineComponent, ref, onMounted, watch } from "vue";
 import * as components from "tukal-vue";
 import { useStore } from "vuex";
+import NavBar from "./NavBar.vue";
 import axios from "axios";
 export default defineComponent({
     components: {
         ...components,
+        NavBar
     },
     setup() {
         const navExpanded = ref(false);
@@ -148,7 +116,6 @@ export default defineComponent({
         const store = useStore();
         const tableData = ref([]);
         const activeDialog = ref(false);
-        const currentClient = ref();
         const search = ref("");
         let tempStatus = ref("pending");
         onMounted(async () => {
@@ -156,7 +123,7 @@ export default defineComponent({
                 id: store.getters.getToken,
             };
             let res = await axios.post(
-                "http://localhost:5000/doctor/getAllAppointments",
+                "http://localhost:5000/patients/getAllAppointments",
                 param
             );
             tableData.value = res.data.appointments;
@@ -173,35 +140,18 @@ export default defineComponent({
                     id: store.getters.getToken,
                 };
                 let res = await axios.post(
-                    "http://localhost:5000/doctor/getAllAppointments",
+                    "http://localhost:5000/patients/getAllAppointments",
                     param
                 );
                 tableData.value = res.data.appointments;
             }
         })
-        const updateStatus = (data) => {
-            activeDialog.value = true;
-            currentClient.value = data.email;
-        };
-        const update = async (status) => {
-            let param = {
-                email: currentClient.value,
-                status: status,
-                id: store.getters.getToken,
-            };
-            await axios.post(
-                "http://localhost:5000/doctor/updateStatus",
-                param
-            );
-            activeDialog.value = false;
-            window.reload();
-        };
         const checkStatus = async (data) => {
             let param = {
-                email: data.email,
+                fullname: data.fullname,
             };
             let resp = await axios.post(
-                "http://localhost:5000/doctor/getpatient",
+                "http://localhost:5000/patients/getDoctor",
                 param
             );
             for (let i = 0; i < resp.data.length; i++) {
@@ -217,11 +167,9 @@ export default defineComponent({
             navState,
             reduce,
             tableData,
-            updateStatus,
             activeDialog,
-            update,
-            checkStatus,
-            search
+            search,
+            checkStatus
         };
     },
 });

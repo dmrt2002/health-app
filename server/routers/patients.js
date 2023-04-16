@@ -9,5 +9,7 @@ router.post("/login", jsonParser, userController.userLogin);
 router.post("/getMedicines", jsonParser, userController.getMedicines);
 router.post("/getDiseases", jsonParser, userController.getDiseases);
 router.post("/getAppointment", jsonParser, userController.getAppointment);
+router.post("/getAllAppointments", jsonParser, userController.getAllAppointmentsPatient);
+router.post("/getDoctor", jsonParser, userController.getDoctor);
 
 module.exports = router;

@@ -8,47 +8,37 @@
                         <label for="search" class="sr-only">Search</label>
                         <div class="relative">
                             <div class="
-                                  pointer-events-none
-                                  absolute
-                                  inset-y-0
-                                  left-0
-                                  pl-3
-                                  flex
-                                  items-center
-                                ">
+                                              pointer-events-none
+                                              absolute
+                                              inset-y-0
+                                              left-0
+                                              pl-3
+                                              flex
+                                              items-center
+                                            ">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
-                            <input id="search" name="search" v-model="searchProduct" class="
-                                  block
-                                  w-full
-                                  bg-white
-                                  border border-gray-300
-                                  rounded-md
-                                  py-2
-                                  pl-10
-                                  pr-3
-                                  text-sm
-                                  placeholder-gray-500
-                                  focus:outline-none
-                                  focus:text-gray-900
-                                  focus:placeholder-gray-400
-                                  focus:ring-1
-                                  focus:ring-indigo-500
-                                  focus:border-indigo-500
-                                  sm:text-sm
-                                " placeholder="Search" type="search" />
+                            <input id="search" name="search" v-model="search" class="
+                                              block
+                                              w-full
+                                              bg-white
+                                              border border-gray-300
+                                              rounded-md
+                                              py-2
+                                              pl-10
+                                              pr-3
+                                              text-sm
+                                              placeholder-gray-500
+                                              focus:outline-none
+                                              focus:text-gray-900
+                                              focus:placeholder-gray-400
+                                              focus:ring-1
+                                              focus:ring-indigo-500
+                                              focus:border-indigo-500
+                                              sm:text-sm
+                                            " placeholder="Search" type="search" />
                         </div>
                     </div>
-                </div>
-                <div>
-                    <select id="countries"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-4">
-                        <option selected>Choose a country</option>
-                        <option value="US">United States</option>
-                        <option value="CA">Canada</option>
-                        <option value="FR">France</option>
-                        <option value="DE">Germany</option>
-                    </select>
                 </div>
             </div>
             <div class="grid md:grid-cols-3 sm:grid-cols-12 gap-4 p-6">
@@ -96,7 +86,7 @@
         </div>
         <tu-dialog width="550px" v-model="activeDialog">
             <template v-slot:header>
-                <h4 class="mt-4">Appointment</h4>
+                <h2 class="mt-4 text-xl">Appointment</h2>
             </template>
             <div class="center">
                 <div>
@@ -122,7 +112,14 @@
                                 <span title="Label">Sex</span>
                             </td>
                             <td>
-                                <tu-input primary v-model="sex" state="primary" class="" placeholder="Full Name" />
+                                <tu-select placeholder="" v-model="selectValue1" filter>
+                                    <tu-select-option label="male" value="male">
+                                        Male
+                                    </tu-select-option>
+                                    <tu-select-option label="female" value="female">
+                                        Female
+                                    </tu-select-option>
+                                </tu-select>
                             </td>
                         </tr>
                         <tr>
@@ -162,17 +159,19 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref, toRefs, reactive } from "vue";
+import { defineComponent, onMounted, ref, toRefs, reactive, watch } from "vue";
 import { useStore } from "vuex";
 import axios from "axios"
 import NavBar from "./NavBar.vue";
-import { tuDialog, tuButton, tuInput } from "tukal-vue"
+import { tuDialog, tuButton, tuInput, tuSelect, tuSelectOption } from "tukal-vue"
 export default defineComponent({
     components: {
         NavBar,
         tuDialog,
         tuButton,
-        tuInput
+        tuInput,
+        tuSelect,
+        tuSelectOption
     },
     setup() {
         const store = useStore();
@@ -187,6 +186,7 @@ export default defineComponent({
             email: "",
             date: ""
         })
+        const search = ref("");
         onMounted(async () => {
             let param = {
                 city: store.getters.getCity
@@ -211,11 +211,26 @@ export default defineComponent({
             }
             let res = await axios.post("http://localhost:5000/patients/getAppointment", param);
             console.log(res)
-            if(res.status === 200) {
+            if (res.status === 200) {
                 activeDialog.value = false
             }
         }
-        return { doctors, openDialog, activeDialog, submitApplication, ...toRefs(appointment) }
+        watch(search, async () => {
+            if (search.value !== "") {
+                let result = doctors.value.filter((obj) => {
+                    return obj.fname.startsWith(search.value)
+                })
+                doctors.value = result
+            }
+            else {
+                let param = {
+                    city: store.getters.getCity
+                }
+                let res = await axios.post("http://localhost:5000/doctor/getdoctors", param);
+                doctors.value = res.data
+            }
+        })
+        return { doctors, openDialog, activeDialog, submitApplication, ...toRefs(appointment), search }
     }
 });
 </script>

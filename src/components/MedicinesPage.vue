@@ -23,7 +23,7 @@
                       <input
                         id="search"
                         name="search"
-                        v-model="searchProduct"
+                        v-model="search"
                         class="
                           block
                           w-full
@@ -99,7 +99,7 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref } from "vue";
+import { defineComponent, onMounted, ref, watch } from "vue";
 import axios from "axios"
 import NavBar from "./NavBar.vue"
 export default defineComponent({
@@ -108,12 +108,24 @@ export default defineComponent({
     },
     setup() {
         const medicines = ref([]);
+        const search = ref("");
         onMounted(async () => {
             let res = await axios.post("http://localhost:5000/patients/getMedicines");
             medicines.value = res.data
-            console.log(medicines.value[0])
+            watch(search, async () => {
+            if (search.value !== "") {
+                let result = medicines.value.filter((obj) => {
+                    return obj.openfda.brand_name[0].startsWith(search.value)
+                })
+                medicines.value = result
+            }
+            else {
+                let res = await axios.post("http://localhost:5000/patients/getMedicines");
+                medicines.value = res.data
+            }
         })
-        return { medicines }
+        })
+        return { medicines, search }
     }
 });
 </script>

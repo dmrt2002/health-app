@@ -20,7 +20,7 @@ const userSchema = mongoose.Schema({
   },
   done: {
     type: Array
-  }
+  },
 });
 //this method search for a user by email and password.
 userSchema.statics.findByCredentials = async (email, password) => {

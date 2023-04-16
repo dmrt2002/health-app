@@ -130,7 +130,7 @@ export default {
           if (res.status !== 401) {
             store.dispatch("storeToken", res.data.token);
             store.dispatch("storeEmail", state.email);
-            router.push("/home");
+            router.push("/login");
           }
         } catch (e) {
           console.log(e)

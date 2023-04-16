@@ -7,6 +7,7 @@ import MedicinesPage from "../components/MedicinesPage.vue"
 import DiseasesPage from "../components/DiseasesPage.vue"
 import HomePage from "../components/HomePage.vue"
 import CheerFul from '../components/CheerFul.vue'
+import patientDashboard from '../components/patientDashboard.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
@@ -59,6 +60,11 @@ const routes = [
         path: '/cheer',
         name: 'CheerFul',
         component: CheerFul
+    },
+    {
+        path: '/patientDashboard',
+        name: 'patient',
+        component: patientDashboard
     },
 ]
 
