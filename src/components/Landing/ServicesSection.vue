@@ -74,6 +74,11 @@
           </p>
         </div>
         <!-- Chatbot -->
+        <div>
+          
+        <div v-if="showTooltip" class="tooltip border-img">
+        <p>Click here to chat with us!</p>
+      </div>
         <button
         @click="cart = true"
           class="inline-block h-12 w-12 lg:mb-0 mr-4 fixed bottom-5 right-5 z-50"
@@ -82,6 +87,7 @@
             class="h-full w-full rounded-full bg-white overflow-hidden text-indigo-500 shadow-lg p-2 hover:drop-shadow-glow"
           />
         </button>
+        </div>
 
         <!-- Chatbot end -->
 
@@ -143,7 +149,7 @@
                             </div>
 
                           </div>
-<!-- tushar bsdk -->
+<!-- chatbot ui  -->
 	<div class="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden">
 		<div class="flex flex-col flex-grow h-0 p-4 overflow-auto">
 			<div class="flex w-full mt-2 space-x-3 max-w-xs">
@@ -233,7 +239,7 @@
 			<input class="flex items-center h-10 w-full rounded px-3 text-sm" type="text" placeholder="Type your message…">
 		</div>
 	</div>
-<!--tushar bsdk end -->
+<!--chatbot end -->
                         </div>
                       </DialogPanel>
                     </TransitionChild>
@@ -257,6 +263,9 @@
 import { ChatBubbleLeftEllipsisIcon } from "@heroicons/vue/24/solid";
 import { ref } from '@vue/runtime-core';
 import { Dialog, TransitionChild, TransitionRoot } from "@headlessui/vue";
+// eslint-disable-next-line
+import VueScrollTo from 'vue-scrollto'
+
 export default {
   name: "ServicesSection",
   components: {
@@ -266,6 +275,28 @@ export default {
     TransitionRoot,
 
   },
+
+  data() {
+    return {
+      showTooltip: false
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    handleScroll() {
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+      if (scrollPosition > 500) { 
+        this.showTooltip = true
+      setTimeout(() => {
+        this.showTooltip = false
+      }, 7000)
+        window.removeEventListener('scroll', this.handleScroll)
+
+      }
+    }
+},
   setup() {
     // eslint-disable-next-line
     const open = ref(false);
